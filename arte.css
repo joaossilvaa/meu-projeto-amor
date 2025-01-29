@@ -1,0 +1,566 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #141414;
+    color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    color: #e50914;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav .menu ul {
+    display: flex;
+    list-style: none;
+}
+
+nav .menu ul li {
+    margin-left: 20px;
+}
+
+nav .menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav .menu ul li a:hover {
+    color: #e50914;
+}
+
+.banner {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.banner-info h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.banner-info p {
+    font-size: 18px;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.banner-info .btn-play,
+.banner-info .btn-my-list {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.banner-info .btn-play:hover,
+.banner-info .btn-my-list:hover {
+    background-color: #f40612;
+}
+
+.banner-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    padding: 20px;
+    border-radius: 5px; /* Adiciona borda arredondada para um visual mais suave */
+}
+
+.banner-info h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.banner-info p {
+    font-size: 18px;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: brilho 3s infinite linear;
+}
+
+@keyframes brilho {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.banner-info button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.banner-info button:hover {
+    transform: scale(1.1);
+    background-color: #ff1e1e;
+}
+
+.filmes {
+    padding: 20px;
+    margin-top: 80px; /* Para não sobrepor o header */
+}
+
+.filmes h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.carrossel {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.carrossel-item {
+    margin-right: 15px;
+}
+
+.carrossel img,
+.carrossel video {
+    width: 200px;  /* Tamanho fixo para as imagens e vídeos */
+    height: 300px; /* Tamanho fixo para as imagens e vídeos */
+    object-fit: cover; /* Para manter o aspecto correto da imagem e vídeo */
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.carrossel img:hover,
+.carrossel video:hover {
+    transform: scale(1.05);
+}
+
+.filme-titulo {
+    margin-top: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center; /* Centraliza o texto */
+    word-wrap: break-word; /* Quebra palavras longas */
+    white-space: normal; /* Permite quebra de linha */
+    overflow-wrap: break-word; /* Força quebra em palavras grandes */
+    max-width: 200px; /* Define uma largura máxima para o texto */
+    margin: 0 auto; /* Centraliza o texto horizontalmente no espaço do filme */
+}
+
+footer {
+    background-color: #141414;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.carrossel-item {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.carrossel-item:hover {
+    transform: scale(1.1);
+}
+
+.carrossel-item .assistir {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(229, 9, 20, 0.9);
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.carrossel-item:hover .assistir {
+    opacity: 1;
+}
+
+/* Estilo do modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Conteúdo do modal */
+.modal-conteudo {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Vídeo e imagem dentro do modal */
+.modal-conteudo video,
+.modal-conteudo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Botão de fechar */
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    position: relative;
+    max-width: 90vw; /* O vídeo/imagem ocupará no máximo 90% da largura da tela */
+    max-height: 90vh; /* O vídeo/imagem ocupará no máximo 90% da altura da tela */
+}
+
+.modal-conteudo video,
+.modal-conteudo img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Garante que o vídeo/imagem não ultrapasse a altura da tela */
+    border-radius: 10px;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-conteudo {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+}
+
+.modal-conteudo video,
+.modal-conteudo img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fechar:hover {
+    color: red;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-conteudo {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+}
+
+.modal-conteudo video,
+.modal-conteudo img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fechar:hover {
+    color: red;
+}
+
+/* Deixar botão mais atrativo*/
+button {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+    background: #b20710;
+    transform: scale(1.05);
+}
+
+/* Melhorar apresentação Filmes */
+.carrossel-item {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carrossel-item:hover {
+    transform: scale(1.1);
+}
+
+.filme-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Melhorar Logo */
+header {
+    background: black;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e50914;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu ul li a:hover {
+    color: #e50914;
+}
+
+/* Melhorar titulos*/
+
+.filme-titulo {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 90%;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.filme-titulo:hover {
+    transform: scale(1.1);
+    background: rgba(255, 0, 0, 0.8);
+    color: #fff;
+}
+
+.filme-titulo {
+    font-size: 16px; /* Ajuste o tamanho da fonte */
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 90%;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.filme-titulo:hover {
+    transform: scale(1.05); /* Leve aumento no hover */
+    background: rgba(255, 0, 0, 0.8);
+    color: #fff;
+}
+
+/* Estilo geral para os títulos */
+.filme-titulo {
+    font-size: 16px; /* Tamanho da fonte ajustado */
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 90%; /* Limita a largura */
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+    word-wrap: break-word; /* Quebra de linha para evitar overflow */
+    overflow-wrap: break-word; /* Garantir que o texto quebre corretamente */
+}
+
+/* Títulos longos específicos */
+.filme-titulo[data-title="um-lugar-silencioso"] {
+    font-size: 14px; /* Ajuste o tamanho para títulos longos */
+    padding: 8px 12px;
+}
+
+.filme-titulo[data-title="meia-noite-em-paris"] {
+    font-size: 14px; /* Ajuste o tamanho para títulos longos */
+    padding: 8px 12px;
+}
+
+/* Efeito ao passar o mouse */
+.filme-titulo:hover {
+    transform: scale(1.05);
+    background: rgba(255, 0, 0, 0.8);
+    color: #fff;
+}

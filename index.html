@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Netflix</title>
+    <link rel="stylesheet" href="arte.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Netflix</div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Filmes</a></li>
+                <li><a href="#">Minha Lista</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<section class="banner">
+    <img src="https://imgur.com/c7Z4qmP.jpeg" alt="Banner do filme">
+    <div class="banner-info">
+        <h1>Nossa Historia</h1>
+        <p>Era uma vez uma princesa incrivelmente linda que, além de salvar o reino (sua casa), também ajudava seu namorado a conquistar seus sonhos. Ele, coitado, não sabia nem por onde começar, mas com a ajuda dela (e muita paciência), ele começa a descobrir que até o impossível fica mais fácil quando você tem alguém incrível ao seu lado. Juntos, eles enfrentam dragões, desafios e, claro, a luta diária contra a procrastinação. Porque, no final, o amor é o melhor combustível para conquistar qualquer coisa</p>
+        <button class="btn-play">Assistir</button>
+        <button class="btn-my-list">Minha Lista</button>
+    </div>
+</section>
+
+<section class="filmes">
+    <h2>Filmes em Destaque</h2>
+    <div class="carrossel">
+        <div class="carrossel-item">
+            <video src="https://i.imgur.com/RtfUEXw.mp4" autoplay loop muted></video>
+            <p class="filme-titulo">O Belo e a Fera</p>
+            <button class="assistir">Assistir</button>
+        </div>
+        <div class="carrossel-item">
+            <img src="https://i.imgur.com/Yj3whPl.jpeg" alt="Filme 1">
+            <p class="filme-titulo">Furiosa e Impaciente</p>
+            <button class="assistir">Assistir</button>
+        </div>
+        <div class="carrossel-item">
+            <video src="https://i.imgur.com/GGHwyzH.mp4" autoplay loop muted></video>
+            <p class="filme-titulo">Miss Estresse</p>
+            <button class="assistir">Assistir</button>
+        </div>
+        <div class="carrossel-item">
+            <img src="https://i.imgur.com/Q7CUNZg.jpeg" alt="Filme 4">
+            <p class="filme-titulo" data-title="um-lugar-silencioso">Um Lugar Silencioso - onde não pode fungar</p>
+            <button class="assistir">Assistir</button>
+        </div>
+        <div class="carrossel-item">
+                <video src="https://imgur.com/vqq6lrD.mp4" autoplay loop muted></video>
+                <p class="filme-titulo" data-title="Meia-Noite">Meia-Noite em Paris (Mas era pra ser ás 19H) </p>
+                <button class="assistir">Assistir</button>
+        </div>
+            <div class="carrossel-item">
+                <img src="https://imgur.com/XM4kQSd.jpeg"alt="filme 6">
+                <p class="filme-titulo">Sr & Sra Teimosia</p>
+                <button class="assistir">Assistir</button>
+                
+        </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2025 Netflix. Todos os direitos reservados.</p>
+</footer>
+<script src="script.js"></script>
+
+</body>
+<!-- Modal -->
+<div id="modal" class="modal">
+    <span class="fechar">&times;</span>
+    <div class="modal-conteudo">
+        <video id="video-player" controls>
+            <source id="video-source" src="" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        <img id="imagem-modal" src="" alt="Imagem Ampliada">
+    </div>
+
+</div>
+
+</html>
