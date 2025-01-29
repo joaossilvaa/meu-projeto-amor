@@ -564,3 +564,107 @@ header {
     background: rgba(255, 0, 0, 0.8);
     color: #fff;
 }
+
+/* Ajustes para o carrossel de imagens e vídeos */
+.carrossel-item img, .carrossel-item video {
+    width: 100%; /* Ajusta a largura para 100% da tela */
+    height: auto; /* Mantém a proporção */
+}
+
+/* Ajustes para o título do filme */
+.filme-titulo {
+    font-size: 14px; /* Tamanho da fonte ajustado */
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    max-width: 90%; /* Limita a largura */
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ajustes para o carrossel de filmes */
+.carrossel {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.carrossel-item {
+    min-width: 180px; /* Tamanho mínimo para cada item */
+    max-width: 250px; /* Limita o tamanho máximo */
+    flex-shrink: 0;
+    text-align: center;
+}
+
+/* Ajuste para o botão de assistir */
+button.assistir {
+    padding: 10px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button.assistir:hover {
+    background-color: #f40612;
+}
+
+/* Ajustes para telas menores que 768px */
+@media (max-width: 768px) {
+    .carrossel {
+        flex-direction: column; /* Organiza os itens verticalmente */
+        align-items: center;
+    }
+
+    .carrossel-item {
+        min-width: 100%; /* Deixa os itens do carrossel com largura total */
+        margin-bottom: 20px; /* Espaço entre os itens */
+    }
+
+    .filme-titulo {
+        font-size: 12px; /* Reduz o tamanho da fonte para telas menores */
+        padding: 5px;
+    }
+
+    .banner img {
+        width: 100%; /* Ajusta a imagem do banner */
+        height: auto;
+    }
+
+    .banner-info h1 {
+        font-size: 22px; /* Ajusta o tamanho do título no banner */
+    }
+
+    .banner-info p {
+        font-size: 14px; /* Ajusta o tamanho do parágrafo */
+    }
+
+    .btn-play, .btn-my-list {
+        width: 100%; /* Botões ocupando toda a largura */
+    }
+}
+
+/* Ajustes para dispositivos muito pequenos (menores que 480px) */
+@media (max-width: 480px) {
+    .filme-titulo {
+        font-size: 10px; /* Ajusta ainda mais o tamanho da fonte */
+        padding: 3px;
+    }
+
+    .carrossel-item {
+        min-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .btn-play, .btn-my-list {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
